@@ -4,8 +4,6 @@ This example introduces the C++ Standard Library `string` class and demonstrates
 
 string is a class, not a primitive type
 
-## What This Program Shows
-
 ### Creating String Objects
 
 We showed: 
@@ -26,6 +24,6 @@ We showed:
 
 ### Included files:
 
--app.cpp uses the std::string class in C++
+- app.cpp uses the std::string class in C++
 
--file_try.cpp shows how to read strings in from a file
+- file_try.cpp shows how to read strings in from a file
