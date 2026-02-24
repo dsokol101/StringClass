@@ -15,6 +15,25 @@
  */
 using namespace std;
 
+// pass by value, so we get a copy of the vector
+void print_vec(vector<double> v)
+{
+    for (double elt : v)
+    {
+        cout << elt << " ";
+    }
+    cout << endl;
+    v.clear(); // this does not affect the original vector in main() because we have a copy of the vector in this function
+}
+// pass by reference, so we get a reference to the original vector
+void increment_vec(vector<double> &v)
+{
+    for (double &elt : v)
+    {
+        elt += 1.0; // this modifies the original vector in main() because we have a reference to the original vector
+    }       
+}
+
 int main()
 {
     vector<double> v; // default constructed (on the stack)
@@ -32,29 +51,41 @@ int main()
     catch (const out_of_range &e)
     {
     }
-    v[0] = 1.1;
+    v[0] = 1.1; // lvalue
     // with using square brackets, the programmer is responsible to make sure
     // index is in bounds, otherwise we have undefined behavior.
     // With at(), we get an exception if index is out of bounds.
 
     vector<double> v2{1.0, 2.0, 3.0}; // using initializer list constructor
     v = v2;
-    cout << "v after assignment: ";
+    cout << "\nv after assignment: ";
     // standard for loop
     for (size_t i = 0; i < v.size(); ++i)
     {
         cout << v[i] << " ";
-    }   
+    }
     // change v and show that v2 is unchanged
+    v[0] = 10.0;
+    cout << "\nv after modifying v[0]: ";
     // range based for loop
-    for (double elt: v)
+    for (double elt : v)
     {
         cout << elt << " ";
-    }   
+    }
+    cout << "\nv2 after modifying v: ";
     // using an iterator
-    for (auto it = v.begin(); it != v.end(); ++it)
+    for (auto it = v2.begin(); it != v2.end(); ++it)
     {
         cout << *it << " ";
+    }
+    // comparing vectors using == and !=
+    if (v == v2)
+    {
+        cout << "\nv and v2 are equal" << endl;
+    }
+    else
+    {
+        cout << "\nv and v2 are not equal" << endl;
     }   
     return 0;
 }

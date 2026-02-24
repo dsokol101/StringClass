@@ -13,6 +13,9 @@ int main() {
 
     cout << "s1: " << s1 << endl;
     cout << "length of s4: " << s4.length() << endl;
+    cout << "s5: " << s5 << endl;
+    cout << "length of s5: " << s5.length() << endl;
+
 
     // let's take a look at some operators that we can use on strings
     cout << "0th char in s1: " << s1[0] << endl;
@@ -24,6 +27,16 @@ int main() {
     // assignment operator
     s3 = s1;
     // comparison operators
+    // in Java we use .equals() to compare strings, but in C++ we can use == and !=
+    if (s1 == s3) { 
+        cout << "s1 and s3 are equal" << endl;
+    } else {
+        cout << "s1 and s3 are not equal" << endl;
+    }   
+    // in Java, we have to use compareTo() to order strings, but in C++ we can use <, >, <=, >=
+    if (s1 < s2) { 
+        cout << s1 << " is less than " << s2 << endl;
+    }
     
     return 0;
 }
