@@ -14,7 +14,18 @@
  * 8. show how to use the vector constructor that takes a size and a default value
  */
 using namespace std;
+void print_vec(vector<double> v);
+void increment_vec(vector<double> &v);
 
+void print_vecV2(const vector<double> &v)
+{
+    increment_vec(v);
+    for (double elt : v)
+    {
+        cout << elt << " ";
+    }
+    cout << endl;
+}   
 // pass by value, so we get a copy of the vector
 void print_vec(vector<double> v)
 {
