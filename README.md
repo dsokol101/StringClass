@@ -1,29 +1,71 @@
-# Introduction to `std::string` in C++
+# C++ `string` and `vector` Examples
 
-This example introduces the C++ Standard Library `string` class and demonstrates basic object usage.
+This repository contains two example programs demonstrating the use of the C++ Standard Library classes `string` and `vector`.
 
-string is a class, not a primitive type
+## `string` Example
 
-### Creating String Objects
+The string program demonstrates:
 
-We showed: 
+- Different ways to construct and initialize a `string`
+- The default constructor and empty strings
+- Finding the length of a string with `length()`
+- Accessing and modifying individual characters using `[]`
+- Concatenating strings with `+` and `+=`
+- Assigning one string to another with `=`
+- Comparing strings using `==`, `!=`, `<`, `>`, `<=`, and `>=`
 
-- Multiple ways to initialize a string
+### C++ vs. Java
 
-- The default constructor creates an empty string
+Unlike Java, C++ allows the usual comparison operators to be used with strings:
 
-### Key Ideas
+```cpp
+if (s1 == s2)
+```
 
-1. string objects are constructed using constructors
+instead of Java's `s1.equals(s2)`.
 
-2. They support member functions like .length()
+Similarly, strings can be ordered using operators such as `<` rather than Java's `compareTo()`.
 
-3. Operators such as [], +, +=, and = are overloaded
+---
 
-4. Memory management is handled automatically
+## `vector` Example
 
-### Included files:
+A `vector` is a container that stores a sequence of elements and can grow dynamically.
 
-- app.cpp uses the std::string class in C++
+The vector program demonstrates:
 
-- file_try.cpp shows how to read strings in from a file
+- Default construction of an empty `vector`
+- `size()` and `capacity()`
+- Adding elements with `push_back()`
+- Accessing elements with `[]` and `at()`
+- The difference between unchecked `[]` access and bounds-checked `at()`
+- Assigning one vector to another with `=`
+- Comparing vectors with `==` and `!=`
+- Iterating through a vector using:
+  - a traditional `for` loop
+  - a range-based `for` loop
+  - an iterator
+- Passing a vector by value
+- Passing a vector by reference
+
+### Pass by Value vs. Pass by Reference
+
+Passing a vector **by value** makes a copy:
+
+```cpp
+void print_vec(vector<double> v);
+```
+
+Changes to `v` inside the function do not affect the original vector.
+
+Passing a vector **by reference** avoids making a copy and allows the function to modify the original vector:
+
+```cpp
+void increment_vec(vector<double>& v);
+```
+
+If a function should avoid copying the vector but should **not** modify it, use a `const` reference:
+
+```cpp
+void print_vec(const vector<double>& v);
+```

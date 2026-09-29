@@ -3,7 +3,6 @@
 /**
  * This program demonstrates the use of std::vector in C++. It shows how to create a vector, check its size and capacity, and access its elements using both the subscript operator and the at() method. The program also highlights the difference between these two methods of accessing vector elements, particularly in terms of bounds checking.
  *
- * todo:
  * 1. show operator = (assignment operator)
  * 2. show operator == and operator !=
  * 3. show passing a vector as a parameter to a function
@@ -19,7 +18,7 @@ void increment_vec(vector<double> &v);
 
 void print_vecV2(const vector<double> &v)
 {
-    increment_vec(v);
+   // this would cause an error:  increment_vec(v);
     for (double elt : v)
     {
         cout << elt << " ";
